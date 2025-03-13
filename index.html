@@ -6,25 +6,60 @@
     <title>PH-Tube</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .active{
+        background-color:#ff1f3d;
+        color: white; 
+    }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="w-11/12 mx-auto flex justify-between border-b-2 py-5 border-[#17171720]">
+        <nav class="w-11/12 mx-auto flex items-center justify-between border-b-2 py-5 border-[#17171720]">
             <div class="logo">
                 <img class="w-[120px]" src="assets/Logo.png" alt="">
             </div>
             <div class="sort">
-                <button class="btn">Sort By View</button>
+                <label class="input">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
+                    <input id="search-input" type="search" required placeholder="Search"/>
+                  </label>
             </div>
             <div class="blogs">
-                <button class="btn bg-[#FF1F3D] text-white">Blogs</button>
+                <button class="btn bg-[#FF1F3D] text-white">Sort by View</button>
             </div>
         </nav>
-        <nav id="category-container" class="flex py-5 justify-center gap-5 ml-12">
-            <button class="btn btn-sm">All</button>
-            <button class="btn btn-sm">All</button>
-            <button class="btn btn-sm">All</button>
-        </nav>
     </header>
+
+    <nav id="category-container" class="flex py-5 justify-center gap-5">
+        <button onclick="loadVideos()" id="btn-all" class="btn btn-sm active">All</button>
+    </nav>
+
+    <section id="video-container" class="w-11/12 mx-auto grid grid-cols-4 gap-4">
+        
+
+        <!-- <div class="col-span-full flex flex-col justify-center items-center text-center py-20 pl-15">
+            <img class="w-[120px]" src="assets/Icon.png" alt="">
+            <h2 class="text-2xl font-bold">Oops!! Sorry, There is no content here.</h2>
+        </div> -->
+    </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+<dialog id="video_details" class="modal">
+  <div class="modal-box">
+    <div id="details-container">
+        
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+    <script src="scripts/index.js"></script>
 </body>
 </html>
